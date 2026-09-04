@@ -2,44 +2,59 @@ pipeline {
     agent any
 
     environment {
-        ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
+        NODE_OPTIONS = '--openssl-legacy-provider'
+        DOCKER_IMAGE = 'sndeep310/zomato-clone'
     }
 
     stages {
-        stage('Unit Test') {
+
+        stage('Checkout') {
             steps {
-                echo "Running Unit Tests..."
-                sh 'mvn clean test'
+                echo 'Checking out source code...'
+                checkout scm
             }
         }
 
-        stage('Deploy Standalone') {
+        stage('Install Dependencies') {
             steps {
-                echo "Deploying in Standalone mode..."
-                sh 'mvn deploy -P standalone'
+                echo 'Installing dependencies...'
+                sh 'npm ci'
             }
         }
 
-        stage('Deploy to AnyPoint') {
+        stage('Build') {
             steps {
-                echo "Deploying to Anypoint Platform..."
+                echo 'Building React application...'
+                sh 'npm run build'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                echo 'Building Docker image...'
+                sh 'docker build -t ${DOCKER_IMAGE}:latest .'
+            }
+        }
+
+        stage('Trivy Scan') {
+            steps {
+                echo 'Scanning Docker image with Trivy...'
+                sh 'trivy image ${DOCKER_IMAGE}:latest'
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                echo 'Deploying Zomato application...'
+
                 sh '''
-                mvn deploy -P arm \
-                -Darm.target.name=local-4.0.0-ee \
-                -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} \
-                -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW}
-                '''
-            }
-        }
+                    docker stop zomato-app || true
+                    docker rm zomato-app || true
 
-        stage('Deploy to CloudHub') {
-            steps {
-                echo "Deploying to CloudHub..."
-                sh '''
-                mvn deploy -P cloudhub \
-                -Dmule.version=4.0.0 \
-                -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} \
-                -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW}
+                    docker run -d \
+                      --name zomato-app \
+                      -p 8080:80 \
+                      ${DOCKER_IMAGE}:latest
                 '''
             }
         }
@@ -47,10 +62,11 @@ pipeline {
 
     post {
         success {
-            echo "✅ Deployment completed successfully!"
+            echo 'Deployment completed successfully!'
         }
+
         failure {
-            echo "❌ Deployment failed! Check logs for errors."
+            echo 'Deployment failed! Check Jenkins logs.'
         }
     }
 }
