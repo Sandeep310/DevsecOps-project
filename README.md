@@ -92,16 +92,7 @@ You can deploy this project on:
 - **Netlify** ([Docs](https://docs.netlify.com/))  
 - **AWS Amplify** ([Docs](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html))  
 
----
 
-## 📚 Learn More  
-
-- 🏗️ [React Documentation](https://reactjs.org/)  
-- ⚡ [Code Splitting](https://facebook.github.io/create-react-app/docs/code-splitting)  
-- 🔍 [Analyzing Bundle Size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)  
-- 📲 [Making a Progressive Web App](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)  
-
----
 
 ## 🤝 **Contributing**  
 
@@ -115,16 +106,8 @@ Contributions are welcome! If you'd like to improve this project, feel free to s
 
 ---
 
-## 🛠️ **Author & Community**  
-
-This project is crafted by **[Harshhaa](https://github.com/NotHarshhaa)** 💡.  
-I’d love to hear your feedback! Feel free to share your thoughts.  
 
 ---
-
-### 📧 **Connect with me:**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/harshhaa-vardhan-reddy) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/NotHarshhaa)  [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/prodevopsguy) [![Dev.to](https://img.shields.io/badge/Dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white)](https://dev.to/notharshhaa) [![Hashnode](https://img.shields.io/badge/Hashnode-2962FF?style=for-the-badge&logo=hashnode&logoColor=white)](https://hashnode.com/@prodevopsguy)  
 
 ---
 
