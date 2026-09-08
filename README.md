@@ -111,9 +111,6 @@ Contributions are welcome! If you'd like to improve this project, feel free to s
 
 ---
 
-### 📢 **Stay Connected**  
-
-![Follow Me](https://imgur.com/2j7GSPs.png)
 
 ---
 
