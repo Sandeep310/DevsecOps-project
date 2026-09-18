@@ -1,117 +1,300 @@
-# 🍽️ **Zomato Clone: Secure Deployment with DevSecOps CI/CD**  
 
-![Zomato Clone](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*X_hm5iF0NRjbOZHB6RQIFA.jpeg)  
 
-🚀 **A full-stack Zomato Clone with DevSecOps integration for a secure and scalable deployment.**  
+# 🍽️ Zomato Clone – DevSecOps CI/CD Project
 
-This **Zomato Clone: Secure Deployment with DevSecOps CI/CD** repository is a **full-stack food delivery application** inspired by Zomato. It includes a **React.js frontend** and integrates DevSecOps practices to ensure a secure and automated deployment pipeline.  
+A React-based Zomato Clone deployed using a secure and automated DevSecOps pipeline with **Jenkins, Docker, Trivy, and AWS EC2**.
 
-## 🔹 **Key Features:**  
+## 📌 Project Overview
 
-✅ **User-friendly UI** – Interactive menu, checkout, and order tracking.  
-✅ **Secure DevOps Pipeline** – CI/CD automation with security checks.  
-✅ **Optimized Deployment** – Uses containerization & cloud hosting.  
-✅ **React.js-Based Frontend** – Built with Create React App.  
-✅ **Production-Ready** – Includes build optimizations & best practices.  
+This project demonstrates how a frontend application can be containerized, security-scanned, and deployed automatically using CI/CD practices.
 
-> This repo is a great **learning project** for those interested in **DevSecOps, CI/CD, and secure web app deployment**. 🚀
+The application is built with **React.js** and deployed through a Jenkins pipeline that performs dependency installation, production build, Docker image creation, Trivy security scanning, and container deployment.
 
-🔗 **Read the detailed blog post:** [Zomato Clone - Secure Deployment with DevSecOps CI/CD](https://blog.prodevopsguytech.com/zomato-clone-secure-deployment-with-devsecops-cicd)  
+## 🚀 Live Deployment
 
-## 📸 **Project Screenshots**  
+- **Application:** `http://<EC2-PUBLIC-IP>:8081`
+- **Jenkins:** `http://<EC2-PUBLIC-IP>:8080`
+- **Repository:** [DevSecOps Project](https://github.com/Sandeep310/DevsecOps-project)
 
-| Home Page | Menu View | Checkout Page |  
-|-----------|----------|---------------|  
-| ![](https://miro.medium.com/v2/resize:fit:750/format:webp/1*xVxk3tSbk9yA6hel60t13g.png) | ![](https://miro.medium.com/v2/resize:fit:750/format:webp/1*KOwp6K2sOcSmDyk9Axnvhw.png) | ![](https://miro.medium.com/v2/resize:fit:750/format:webp/1*t1x_F_qwHI6anvRHS59OxA.png) |  
+> Replace `<EC2-PUBLIC-IP>` with your current AWS EC2 public IP address.
 
----
+## 🛠️ Technologies Used
 
-## 🛠️ **Getting Started**  
+### Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Create React App
+- npm
 
-### 🔧 **Prerequisites**  
+### DevOps and DevSecOps
 
-Ensure you have **Node.js** and **npm** installed.  
+- Git
+- GitHub
+- Jenkins
+- Docker
+- Docker Compose concepts
+- Trivy
+- AWS EC2
+- Linux / Ubuntu
+- Nginx
 
-```sh
-node -v   # Check Node.js version
-npm -v    # Check npm version
+## 🔐 DevSecOps Pipeline
+
+The Jenkins pipeline performs the following stages:
+
+```text
+Developer
+   |
+   v
+GitHub Repository
+   |
+   v
+Jenkins Pipeline
+   |
+   +--> Checkout Source Code
+   |
+   +--> Install Dependencies
+   |
+   +--> Build React Application
+   |
+   +--> Build Docker Image
+   |
+   +--> Scan Image with Trivy
+   |
+   +--> Deploy Container on AWS EC2
+   |
+   v
+Running Application
 ```
 
-### 📦 **Installation**  
+## ⚙️ Jenkins Pipeline Stages
 
-Clone the repository and install dependencies:  
+| Stage | Description |
+|---|---|
+| Checkout | Retrieves the latest source code from GitHub |
+| Install Dependencies | Installs project dependencies using `npm ci` |
+| Build | Creates the production-ready React build |
+| Docker Build | Builds the application Docker image |
+| Trivy Scan | Scans the Docker image for vulnerabilities |
+| Docker Run | Stops the previous container and deploys the latest version |
 
-```sh
-git clone https://github.com/your-repo/zomato-clone.git  
-cd zomato-clone  
-npm install  
+## 🐳 Docker Configuration
+
+The application uses a multi-stage Dockerfile.
+
+### Build Stage
+
+- Uses Node.js 18 Alpine
+- Installs npm dependencies
+- Builds the React application
+
+### Production Stage
+
+- Uses Nginx Alpine
+- Serves the React production build
+- Exposes port `80` inside the container
+
+The application is deployed on EC2 using:
+
+```bash
+docker run -d \
+  --name zomato-app \
+  -p 8081:80 \
+  sndeep310/zomato-clone:latest
 ```
 
-### 🚀 **Running the App**  
+## 🔧 Local Setup
 
-Start the development server:  
+### Prerequisites
 
-```sh
-npm start  
+Install the following tools:
+
+- Node.js
+- npm
+- Git
+- Docker, if you want to run the application in a container
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Sandeep310/DevsecOps-project.git
+cd DevsecOps-project/Zomato-Clone
 ```
 
-🔗 Open [http://localhost:3000](http://localhost:3000) in your browser.  
+### Install Dependencies
 
----
-
-## 📜 **Available Scripts**  
-
-| Command | Description |  
-|---------|------------|  
-| `npm start` | Runs the app in development mode |  
-| `npm test` | Launches the test runner |  
-| `npm run build` | Builds the app for production |  
-| `npm run eject` | Ejects the default configuration (irreversible) |  
-
-For more details, check the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).  
-
----
-
-## 🚢 **Deployment**  
-
-### 🔥 **Build for Production**  
-
-```sh
-npm run build  
+```bash
+npm install
 ```
 
-📂 The app is built in the `build/` folder, ready for deployment.  
+### Run in Development Mode
 
-### 🌍 **Hosting**  
+```bash
+npm start
+```
 
-You can deploy this project on:  
+Open the application in your browser:
 
-- **Vercel** ([Docs](https://vercel.com/docs))  
-- **Netlify** ([Docs](https://docs.netlify.com/))  
-- **AWS Amplify** ([Docs](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html))  
+```text
+http://localhost:3000
+```
 
+## 🏗️ Create a Production Build
 
+Because of the legacy React build configuration, use:
 
-## 🤝 **Contributing**  
+```bash
+NODE_OPTIONS=--openssl-legacy-provider npm run build
+```
 
-Contributions are welcome! If you'd like to improve this project, feel free to submit a pull request.  
+The production files will be generated inside the `build/` directory.
 
----
+## 🐳 Run with Docker
 
-## **Hit the Star!** ⭐
+### Build the Docker Image
 
-**If you find this repository helpful and plan to use it for learning, please give it a star. Your support is appreciated!**
+```bash
+docker build -t zomato-clone .
+```
 
----
+### Run the Container
 
+```bash
+docker run -d \
+  --name zomato-app \
+  -p 8081:80 \
+  zomato-clone
+```
 
----
+Open:
 
----
+```text
+http://localhost:8081
+```
 
+### Check Running Containers
 
----
+```bash
+docker ps
+```
 
-### 🎉 **Happy Coding!** 🚀  
+### View Container Logs
+
+```bash
+docker logs zomato-app
+```
+
+### Stop the Container
+
+```bash
+docker stop zomato-app
+```
+
+## 🛡️ Security Scanning with Trivy
+
+The Docker image is scanned using Trivy before deployment.
+
+```bash
+trivy image sndeep310/zomato-clone:latest
+```
+
+Trivy helps identify vulnerabilities in:
+
+- Operating system packages
+- Application dependencies
+- Container images
+
+## ☁️ AWS EC2 Deployment
+
+The application is deployed on an Ubuntu-based AWS EC2 instance.
+
+### Deployment Components
+
+- AWS EC2 for cloud hosting
+- Jenkins for CI/CD automation
+- Docker for containerization
+- Nginx for serving the React application
+- Trivy for container security scanning
+
+### Required Security Group Ports
+
+| Port | Purpose |
+|---|---|
+| `22` | SSH access |
+| `80` | HTTP |
+| `443` | HTTPS |
+| `8080` | Jenkins |
+| `8081` | Zomato Clone application |
+| `9000` | SonarQube, if configured |
+
+## 📂 Project Structure
+
+```text
+Zomato-Clone/
+│
+├── public/
+├── src/
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── jenkinsfile
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+## 📜 Available npm Scripts
+
+| Command | Description |
+|---|---|
+| `npm start` | Starts the development server |
+| `npm test` | Runs the test runner |
+| `npm run build` | Creates the production build |
+| `npm run eject` | Ejects Create React App configuration |
+
+## 🎯 Project Objectives
+
+- Implement CI/CD using Jenkins
+- Containerize a React application using Docker
+- Deploy an application on AWS EC2
+- Integrate Trivy container security scanning
+- Automate application deployment
+- Practice Linux and cloud deployment
+- Understand basic DevSecOps workflows
+
+## 📈 Future Improvements
+
+- Add SonarQube code-quality analysis
+- Add automated unit testing
+- Push Docker images automatically to Docker Hub
+- Add Kubernetes deployment
+- Add HTTPS using a domain and SSL certificate
+- Add monitoring using Prometheus and Grafana
+- Add rollback and blue-green deployment strategies
+
+## 👨‍💻 Author
+
+**Jai Sandeep Gudimetla**
+
+B.Tech – Electronics and Communication Engineering  
+VIT Vellore
+
+### Skills
+
+- AWS
+- Linux
+- Docker
+- Kubernetes
+- Jenkins
+- GitHub Actions
+- Terraform
+- CI/CD
+- DevSecOps
+
+## ⭐ Support
+
+If you find this project useful for learning DevOps or DevSecOps, consider giving the repository a star.
+
