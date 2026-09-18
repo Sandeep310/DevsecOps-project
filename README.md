@@ -18,6 +18,20 @@ The application is built with **React.js** and deployed through a Jenkins pipeli
 
 > Replace `<EC2-PUBLIC-IP>` with your current AWS EC2 public IP address.
 
+## 📸 Project Screenshots
+
+### 🏠 Zomato Clone – Home Page
+
+![Zomato Clone Home Page](screenshots/Home-page.png)
+
+### ⚙️ Jenkins CI/CD Pipeline – Successful Deployment
+
+![Jenkins Successful Pipeline](screenshots/jenkins-pipeline.png)
+
+### ☁️ AWS EC2 Instance Hosting the Application
+
+![AWS EC2 Deployment](screenshots/aws-ec2-deployment.png)
+
 ## 🛠️ Technologies Used
 
 ### Application
