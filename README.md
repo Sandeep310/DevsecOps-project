@@ -12,8 +12,8 @@ The application is built with **React.js** and deployed through a Jenkins pipeli
 
 ## 🚀 Live Deployment
 
-- **Application:** `http://<EC2-PUBLIC-IP>:8081`
-- **Jenkins:** `http://<EC2-PUBLIC-IP>:8080`
+- **Application:** `http://40.192.61.59:8081`
+- **Jenkins:** `http://40.192.61.59:8080`
 - **Repository:** [DevSecOps Project](https://github.com/Sandeep310/DevsecOps-project)
 
 > Replace `<EC2-PUBLIC-IP>` with your current AWS EC2 public IP address.
