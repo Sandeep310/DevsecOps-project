@@ -291,24 +291,45 @@ Zomato-Clone/
 
 ## 👨‍💻 Author
 
-**Jai Sandeep Gudimetla**
+### Jai Sandeep Gudimetla
 
-B.Tech – Electronics and Communication Engineering  
-VIT Vellore
+**DevOps / Cloud Engineer Fresher**  
 
-### Skills
+B.Tech in Electronics and Communication Engineering  
+VIT University, Vellore | Class of 2023
+
+Passionate about cloud infrastructure, automation, CI/CD pipelines, containerization, and DevSecOps practices.
+
+### 🛠️ Technical Skills
 
 - AWS
-- Linux
+- Linux / Ubuntu
 - Docker
 - Kubernetes
 - Jenkins
+- Git & GitHub
 - GitHub Actions
 - Terraform
 - CI/CD
+- Trivy
+- React.js
+
+### 📬 Contact
+
+- 📧 **Email:** jaisandeepgudimetla@gmail.com
+- 📱 **Mobile:** +917071309999
+- 💼 **LinkedIn:** [Jai Sandeep Gudimetla](https://www.linkedin.com/in/jai-sandeep-gudimetla-a22896191/)
+- 🐙 **GitHub:** [Sandeep310](https://github.com/Sandeep310)
+
+### 🚀 Open to Opportunities
+
+I am actively looking for entry-level opportunities in:
+
+- DevOps Engineering
+- Cloud Engineering
+- AWS Infrastructure
+- Site Reliability Engineering
 - DevSecOps
+- Technical Support / Cloud Support
 
-## ⭐ Support
-
-If you find this project useful for learning DevOps or DevSecOps, consider giving the repository a star.
-
+Feel free to connect with me for collaboration, learning, or career opportunities.
